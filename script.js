@@ -14,25 +14,36 @@ const allCheckBox = document.querySelectorAll("input[type=checkbox]");
 const symbols = '~`!@#$%^&*()_-+={[}]|:;"<,>.?/';
 
 
-//initially
+
+//initially set 
 let password = "";
 let passwordLength = 10;
 let checkCount = 0;
 handleSlider();
-//ste strength circle color to grey
+
 
 
 //set passwordLength
 function handleSlider() {
     inputSlider.value = passwordLength;
     lengthDisplay.innerText = passwordLength;
-    //or kuch bhi karna chahiye ? - HW
+    
 }
 
-function setIndicator(color) {
+// function setIndicator(color,shadow) {
+//     indicator.style.backgroundColor = color;
+//     indicator.style.boxShadow =shadow;
+    
+// } 
+
+function setIndicator(color, shadow) {
+    let indicator = document.getElementById('indicator');
     indicator.style.backgroundColor = color;
-    //shadow - HW
+    indicator.style.boxShadow = shadow;
 }
+
+setIndicator('aqua', '2px 3px 3px #888888');
+
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -86,7 +97,7 @@ async function copyContent() {
     catch(e) {
         copyMsg.innerText = "Failed";
     }
-    //to make copy wala span visible
+    
     copyMsg.classList.add("active");
 
     setTimeout( () => {
@@ -156,22 +167,7 @@ generateBtn.addEventListener('click', () => {
 
     //let's put the stuff mentioned by checkboxes
 
-    // if(uppercaseCheck.checked) {
-    //     password += generateUpperCase();
-    // }
-
-    // if(lowercaseCheck.checked) {
-    //     password += generateLowerCase();
-    // }
-
-    // if(numbersCheck.checked) {
-    //     password += generateRandomNumber();
-    // }
-
-    // if(symbolsCheck.checked) {
-    //     password += generateSymbol();
-    // }
-
+    
     let funcArr = [];
 
     if(uppercaseCheck.checked)
