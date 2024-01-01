@@ -41,8 +41,8 @@ function setIndicator(color, shadow) {
     indicator.style.backgroundColor = color;
     indicator.style.boxShadow = shadow;
 }
-
 setIndicator('aqua', '2px 3px 3px #888888');
+
 
 
 function getRndInteger(min, max) {
